@@ -42,6 +42,13 @@ const useStore = create(
           ),
         })),
 
+
+decreasePopulationtwo: () =>
+  set((state) => ({
+    bears: state.bears > 1 ? state.bears - 1 : 1,
+  })),
+
+
     decreasePopulation: (id) =>
   set((state) => ({
     cart: state.cart
