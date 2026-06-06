@@ -5,11 +5,12 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import useStore from "/src/Store/Stoe.js";
 import { Link } from "react-router-dom";
 const Heading = () => {
-const {cart}=useStore()
+const {cart,wishlist}=useStore()
 const totalItems = cart.reduce(
   (total, item) => total + item.quantity,
   0
 );
+const totalItems2 = wishlist.length;
  
   return (
    <>
@@ -59,8 +60,8 @@ const totalItems = cart.reduce(
 
     <div className="flex items-center space-x-4">
       <button className="hover:text-gray-600 transition cursor-pointer relative">
-       <IoMdHeartEmpty className="text-[21px]"/>
-<div className=" absolute top-[-7px] right-[-7px] w-4 h-4 rounded-full bg-red-600"><p className="text-white text-[10px] font-bold"> 0</p></div>
+      <Link to="/wishlist"> <IoMdHeartEmpty className="text-[21px]"/></Link>
+<div className=" absolute top-[-7px] right-[-7px] w-4 h-4 rounded-full bg-red-600"><p className="text-white text-[10px] font-bold"> {totalItems2}</p></div>
 
       </button>
       <button className="hover:text-gray-600 cursor-pointer relative  transition">

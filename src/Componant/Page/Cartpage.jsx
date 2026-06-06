@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 import  useStore  from "/src/Store/Stoe.js";
 
@@ -111,9 +111,11 @@ const { cart,increasePopulation,decreasePopulation } = useStore();
             <p>${total}</p>
           </div>
 
-          <button className="w-full bg-red-500 text-white py-4 rounded-md">
-            Proceeds to checkout
-          </button>
+          <Link to="/checkout">
+            <button className="w-full bg-red-500 text-white py-4 rounded-md">
+              Proceeds to checkout
+            </button>
+          </Link>
         </div>
       </div>
     </section>

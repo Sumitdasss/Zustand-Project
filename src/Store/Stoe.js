@@ -3,10 +3,17 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+
 const useStore = create(
   persist(
     (set) => ({
+      
       cart: [],
+      wishlist: [],
+    
+
+
+
 
       addTocart: (product) =>
         set((state) => {
@@ -30,6 +37,21 @@ const useStore = create(
           };
         }),
 
+    addToWishlist: (product) =>
+  set((state) => {
+    const exist = state.wishlist.find((item) => item.id === product.id);
+    
+    if (exist) {
+      // যদি অলরেডি থাকে, তাহলে রিমুভ করে দাও (Toggle Logic)
+      return {
+        wishlist: state.wishlist.filter((item) => item.id !== product.id),
+      };
+    }
+
+    return {
+      wishlist: [...state.wishlist, product],
+    };
+  }),
       increasePopulation: (id) =>
         set((state) => ({
           cart: state.cart.map((item) =>
@@ -70,6 +92,8 @@ decreasePopulationtwo: () =>
       name: "cart-storage", 
     },
   ),
+    
+
 );
 
 export default useStore;
