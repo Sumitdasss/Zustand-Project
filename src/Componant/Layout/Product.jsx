@@ -1,13 +1,14 @@
 /* eslint-disable no-undef */
 import { useEffect, useState } from "react";
 import useStore from "/src/Store/Stoe.js";
+import {products} from "/src/Store/Data";
 import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
 
 const Product = () => {
-  const { addTocart, products,addToWishlist } = useStore();
+  const { addTocart, addToWishlist } = useStore();
   const [time, setTime] = useState(3 * 24 * 60 * 60 + 23 * 3600 + 19 * 60 + 56);
 
   useEffect(() => {

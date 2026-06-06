@@ -47,7 +47,7 @@ const Banner = () => {
         disableOnInteraction: false,
       }}
       pagination={{ clickable: true }}
-     
+    
     >
       <SwiperSlide>
         <a href="#">
